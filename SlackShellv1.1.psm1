@@ -427,7 +427,7 @@ Last Updated: 5/31/18
         
             #sleep the loop
             Start-Sleep -s $sleep
-        
+            
             #getdata
             $responses = Get-SlackMessage -Token $token -Channel $ChannelID -Oldest $oldestTime | Select-Object -ExpandProperty Messages | Sort-Object ts
             Format-Table -InputObject $responses
